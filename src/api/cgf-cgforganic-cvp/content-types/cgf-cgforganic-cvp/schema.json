@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cgf_cgforganic_cvps",
+  "info": {
+    "singularName": "cgf-cgforganic-cvp",
+    "pluralName": "cgf-cgforganic-cvps",
+    "displayName": "cgf_cgforganic_cvp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cvp_title": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_service_or_feature_key": {
+      "type": "integer"
+    },
+    "cvp_name_button": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_list_item": {
+      "displayName": "cvp_list_item",
+      "type": "component",
+      "repeatable": true,
+      "component": "cgf.cvp-list-item"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "cvp_name_question": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

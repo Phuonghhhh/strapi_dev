@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_cgf_cvp_list_items",
+  "info": {
+    "displayName": "cvp_list_item"
+  },
+  "options": {},
+  "attributes": {
+    "media_item": {
+      "type": "string",
+      "required": true
+    },
+    "title_item": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle_item": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "required": true,
+      "type": "integer"
+    }
+  }
+}

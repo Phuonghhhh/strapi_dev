@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ewrs",
+  "info": {
+    "singularName": "ewr",
+    "pluralName": "ewrs",
+    "displayName": "ewr"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eqwe": {
+      "type": "string"
+    }
+  }
+}
