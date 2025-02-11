@@ -407,12 +407,14 @@ export interface ApiCgfCgforganicCvpCgfCgforganicCvp
   };
 }
 
-export interface ApiEwrEwr extends Struct.CollectionTypeSchema {
-  collectionName: 'ewrs';
+export interface ApiOnboardingCasaorganicCvpOnboardingCasaorganicCvp
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_casaorganic_cvps';
   info: {
-    displayName: 'ewr';
-    pluralName: 'ewrs';
-    singularName: 'ewr';
+    description: '';
+    displayName: 'onboarding_casaorganic_cvp';
+    pluralName: 'onboarding-casaorganic-cvps';
+    singularName: 'onboarding-casaorganic-cvp';
   };
   options: {
     draftAndPublish: true;
@@ -421,10 +423,29 @@ export interface ApiEwrEwr extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    eqwe: Schema.Attribute.String;
+    cvp_description: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_end_date: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_html_form: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_html_url: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_name: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_seo_description: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_seo_keywords: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_seo_title: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_service_or_feature_key: Schema.Attribute.Integer &
+      Schema.Attribute.Required;
+    cvp_start_date: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_status: Schema.Attribute.String & Schema.Attribute.Required;
+    is_active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    list_item: Schema.Attribute.Component<'on-broading-casa.list-item', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ewr.ewr'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-casaorganic-cvp.onboarding-casaorganic-cvp'
+    > &
       Schema.Attribute.Private;
+    name_button: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -942,7 +963,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::cgf-cgforganic-cvp.cgf-cgforganic-cvp': ApiCgfCgforganicCvpCgfCgforganicCvp;
-      'api::ewr.ewr': ApiEwrEwr;
+      'api::onboarding-casaorganic-cvp.onboarding-casaorganic-cvp': ApiOnboardingCasaorganicCvpOnboardingCasaorganicCvp;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

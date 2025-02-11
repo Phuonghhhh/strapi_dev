@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_casaorganic_cvps",
+  "info": {
+    "singularName": "onboarding-casaorganic-cvp",
+    "pluralName": "onboarding-casaorganic-cvps",
+    "displayName": "onboarding_casaorganic_cvp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cvp_name": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_service_or_feature_key": {
+      "type": "integer",
+      "required": true
+    },
+    "cvp_description": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_html_url": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_html_form": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_title": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_description": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_keywords": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_status": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_start_date": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_end_date": {
+      "type": "string",
+      "required": true
+    },
+    "name_button": {
+      "type": "string"
+    },
+    "list_item": {
+      "displayName": "list_item",
+      "type": "component",
+      "repeatable": true,
+      "component": "on-broading-casa.list-item"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

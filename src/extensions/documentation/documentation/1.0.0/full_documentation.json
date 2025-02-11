@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-02-11T02:40:32.913Z"
+    "x-generation-date": "2025-02-11T02:59:43.362Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -544,7 +544,7 @@
         "operationId": "delete/cgf-cgforganic-cvps/{id}"
       }
     },
-    "/ewrs": {
+    "/onboarding-casaorganic-cvps": {
       "get": {
         "responses": {
           "200": {
@@ -552,7 +552,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EwrListResponse"
+                  "$ref": "#/components/schemas/OnboardingCasaorganicCvpListResponse"
                 }
               }
             }
@@ -609,7 +609,7 @@
           }
         },
         "tags": [
-          "Ewr"
+          "Onboarding-casaorganic-cvp"
         ],
         "parameters": [
           {
@@ -715,7 +715,7 @@
             }
           }
         ],
-        "operationId": "get/ewrs"
+        "operationId": "get/onboarding-casaorganic-cvps"
       },
       "post": {
         "responses": {
@@ -724,7 +724,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EwrResponse"
+                  "$ref": "#/components/schemas/OnboardingCasaorganicCvpResponse"
                 }
               }
             }
@@ -781,23 +781,23 @@
           }
         },
         "tags": [
-          "Ewr"
+          "Onboarding-casaorganic-cvp"
         ],
         "parameters": [],
-        "operationId": "post/ewrs",
+        "operationId": "post/onboarding-casaorganic-cvps",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EwrRequest"
+                "$ref": "#/components/schemas/OnboardingCasaorganicCvpRequest"
               }
             }
           }
         }
       }
     },
-    "/ewrs/{id}": {
+    "/onboarding-casaorganic-cvps/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -805,7 +805,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EwrResponse"
+                  "$ref": "#/components/schemas/OnboardingCasaorganicCvpResponse"
                 }
               }
             }
@@ -862,7 +862,7 @@
           }
         },
         "tags": [
-          "Ewr"
+          "Onboarding-casaorganic-cvp"
         ],
         "parameters": [
           {
@@ -876,7 +876,7 @@
             }
           }
         ],
-        "operationId": "get/ewrs/{id}"
+        "operationId": "get/onboarding-casaorganic-cvps/{id}"
       },
       "put": {
         "responses": {
@@ -885,7 +885,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EwrResponse"
+                  "$ref": "#/components/schemas/OnboardingCasaorganicCvpResponse"
                 }
               }
             }
@@ -942,7 +942,7 @@
           }
         },
         "tags": [
-          "Ewr"
+          "Onboarding-casaorganic-cvp"
         ],
         "parameters": [
           {
@@ -956,13 +956,13 @@
             }
           }
         ],
-        "operationId": "put/ewrs/{id}",
+        "operationId": "put/onboarding-casaorganic-cvps/{id}",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EwrRequest"
+                "$ref": "#/components/schemas/OnboardingCasaorganicCvpRequest"
               }
             }
           }
@@ -1033,7 +1033,7 @@
           }
         },
         "tags": [
-          "Ewr"
+          "Onboarding-casaorganic-cvp"
         ],
         "parameters": [
           {
@@ -1047,7 +1047,7 @@
             }
           }
         ],
-        "operationId": "delete/ewrs/{id}"
+        "operationId": "delete/onboarding-casaorganic-cvps/{id}"
       }
     },
     "/upload": {
@@ -3049,17 +3049,73 @@
           }
         }
       },
-      "EwrRequest": {
+      "OnboardingCasaorganicCvpRequest": {
         "type": "object",
         "required": [
           "data"
         ],
         "properties": {
           "data": {
+            "required": [
+              "cvp_name",
+              "cvp_service_or_feature_key",
+              "cvp_description",
+              "cvp_html_url",
+              "cvp_html_form",
+              "cvp_seo_title",
+              "cvp_seo_description",
+              "cvp_seo_keywords",
+              "cvp_status",
+              "cvp_start_date",
+              "cvp_end_date",
+              "is_active"
+            ],
             "type": "object",
             "properties": {
-              "eqwe": {
+              "cvp_name": {
                 "type": "string"
+              },
+              "cvp_service_or_feature_key": {
+                "type": "integer"
+              },
+              "cvp_description": {
+                "type": "string"
+              },
+              "cvp_html_url": {
+                "type": "string"
+              },
+              "cvp_html_form": {
+                "type": "string"
+              },
+              "cvp_seo_title": {
+                "type": "string"
+              },
+              "cvp_seo_description": {
+                "type": "string"
+              },
+              "cvp_seo_keywords": {
+                "type": "string"
+              },
+              "cvp_status": {
+                "type": "string"
+              },
+              "cvp_start_date": {
+                "type": "string"
+              },
+              "cvp_end_date": {
+                "type": "string"
+              },
+              "name_button": {
+                "type": "string"
+              },
+              "list_item": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OnBroadingCasaListItemComponent"
+                }
+              },
+              "is_active": {
+                "type": "boolean"
               },
               "locale": {
                 "type": "string"
@@ -3082,13 +3138,13 @@
           }
         }
       },
-      "EwrListResponse": {
+      "OnboardingCasaorganicCvpListResponse": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Ewr"
+              "$ref": "#/components/schemas/OnboardingCasaorganicCvp"
             }
           },
           "meta": {
@@ -3117,8 +3173,22 @@
           }
         }
       },
-      "Ewr": {
+      "OnboardingCasaorganicCvp": {
         "type": "object",
+        "required": [
+          "cvp_name",
+          "cvp_service_or_feature_key",
+          "cvp_description",
+          "cvp_html_url",
+          "cvp_html_form",
+          "cvp_seo_title",
+          "cvp_seo_description",
+          "cvp_seo_keywords",
+          "cvp_status",
+          "cvp_start_date",
+          "cvp_end_date",
+          "is_active"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -3126,8 +3196,50 @@
           "documentId": {
             "type": "string"
           },
-          "eqwe": {
+          "cvp_name": {
             "type": "string"
+          },
+          "cvp_service_or_feature_key": {
+            "type": "integer"
+          },
+          "cvp_description": {
+            "type": "string"
+          },
+          "cvp_html_url": {
+            "type": "string"
+          },
+          "cvp_html_form": {
+            "type": "string"
+          },
+          "cvp_seo_title": {
+            "type": "string"
+          },
+          "cvp_seo_description": {
+            "type": "string"
+          },
+          "cvp_seo_keywords": {
+            "type": "string"
+          },
+          "cvp_status": {
+            "type": "string"
+          },
+          "cvp_start_date": {
+            "type": "string"
+          },
+          "cvp_end_date": {
+            "type": "string"
+          },
+          "name_button": {
+            "type": "string"
+          },
+          "list_item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OnBroadingCasaListItemComponent"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -3429,8 +3541,50 @@
                 "documentId": {
                   "type": "string"
                 },
-                "eqwe": {
+                "cvp_name": {
                   "type": "string"
+                },
+                "cvp_service_or_feature_key": {
+                  "type": "integer"
+                },
+                "cvp_description": {
+                  "type": "string"
+                },
+                "cvp_html_url": {
+                  "type": "string"
+                },
+                "cvp_html_form": {
+                  "type": "string"
+                },
+                "cvp_seo_title": {
+                  "type": "string"
+                },
+                "cvp_seo_description": {
+                  "type": "string"
+                },
+                "cvp_seo_keywords": {
+                  "type": "string"
+                },
+                "cvp_status": {
+                  "type": "string"
+                },
+                "cvp_start_date": {
+                  "type": "string"
+                },
+                "cvp_end_date": {
+                  "type": "string"
+                },
+                "name_button": {
+                  "type": "string"
+                },
+                "list_item": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OnBroadingCasaListItemComponent"
+                  }
+                },
+                "is_active": {
+                  "type": "boolean"
                 },
                 "createdAt": {
                   "type": "string",
@@ -3488,14 +3642,28 @@
           }
         }
       },
-      "EwrResponse": {
+      "OnboardingCasaorganicCvpResponse": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Ewr"
+            "$ref": "#/components/schemas/OnboardingCasaorganicCvp"
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "OnBroadingCasaListItemComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "media_item": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
           }
         }
       },
