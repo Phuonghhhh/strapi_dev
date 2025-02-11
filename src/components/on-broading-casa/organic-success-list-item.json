@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_on_broading_casa_organic_success_list_items",
+  "info": {
+    "displayName": "organic_success_list_item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image_item": {
+      "type": "string",
+      "required": true
+    },
+    "title_item": {
+      "type": "string",
+      "required": true
+    },
+    "description_item": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

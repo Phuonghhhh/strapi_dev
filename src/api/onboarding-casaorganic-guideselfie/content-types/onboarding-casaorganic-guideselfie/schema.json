@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_casaorganic_guideselfies",
+  "info": {
+    "singularName": "onboarding-casaorganic-guideselfie",
+    "pluralName": "onboarding-casaorganic-guideselfies",
+    "displayName": "onboarding_casaorganic_guideselfie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sub_title": {
+      "type": "string",
+      "required": true
+    },
+    "list_item": {
+      "displayName": "guideselfie_list_item",
+      "type": "component",
+      "repeatable": true,
+      "component": "on-broading-casa.guideselfie-list-item"
+    },
+    "notice": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "name_button": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
