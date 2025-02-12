@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-02-12T10:30:50.810Z"
+    "x-generation-date": "2025-02-12T10:42:46.697Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -5305,8 +5305,7 @@
               "cvp_seo_keywords",
               "cvp_status",
               "cvp_start_date",
-              "cvp_end_date",
-              "cvp_config"
+              "cvp_end_date"
             ],
             "type": "object",
             "properties": {
@@ -5337,9 +5336,6 @@
               "name_button": {
                 "type": "string"
               },
-              "cvp_config": {
-                "type": "string"
-              },
               "cvp_list_item": {
                 "type": "array",
                 "items": {
@@ -5368,6 +5364,13 @@
               },
               "cvp_html": {
                 "type": "string"
+              },
+              "cvp_config": {
+                "type": "string",
+                "enum": [
+                  "html",
+                  "list_items"
+                ]
               },
               "locale": {
                 "type": "string"
@@ -5435,8 +5438,7 @@
           "cvp_seo_keywords",
           "cvp_status",
           "cvp_start_date",
-          "cvp_end_date",
-          "cvp_config"
+          "cvp_end_date"
         ],
         "properties": {
           "id": {
@@ -5470,9 +5472,6 @@
             "type": "string"
           },
           "name_button": {
-            "type": "string"
-          },
-          "cvp_config": {
             "type": "string"
           },
           "cvp_list_item": {
@@ -5540,9 +5539,6 @@
                     "name_button": {
                       "type": "string"
                     },
-                    "cvp_config": {
-                      "type": "string"
-                    },
                     "cvp_list_item": {
                       "type": "array",
                       "items": {
@@ -5571,6 +5567,13 @@
                     },
                     "cvp_html": {
                       "type": "string"
+                    },
+                    "cvp_config": {
+                      "type": "string",
+                      "enum": [
+                        "html",
+                        "list_items"
+                      ]
                     },
                     "createdAt": {
                       "type": "string",
@@ -5937,6 +5940,13 @@
           "cvp_html": {
             "type": "string"
           },
+          "cvp_config": {
+            "type": "string",
+            "enum": [
+              "html",
+              "list_items"
+            ]
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6162,9 +6172,6 @@
                 "type": "string"
               },
               "name_button": {
-                "type": "string"
-              },
-              "cvp_config": {
                 "type": "string"
               },
               "cvp_list_item": {
@@ -6518,6 +6525,13 @@
               },
               "cvp_html": {
                 "type": "string"
+              },
+              "cvp_config": {
+                "type": "string",
+                "enum": [
+                  "html",
+                  "list_items"
+                ]
               },
               "createdAt": {
                 "type": "string",

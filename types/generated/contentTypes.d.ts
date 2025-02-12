@@ -465,7 +465,7 @@ export interface ApiOnboardingCvpOnboardingCvp
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cvp_config: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_config: Schema.Attribute.Enumeration<['html', 'list_items']>;
     cvp_description: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_end_date: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_html: Schema.Attribute.String;

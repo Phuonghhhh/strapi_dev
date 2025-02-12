@@ -47,10 +47,6 @@
     "name_button": {
       "type": "string"
     },
-    "cvp_config": {
-      "type": "string",
-      "required": true
-    },
     "cvp_list_item": {
       "type": "component",
       "repeatable": true,
@@ -70,6 +66,13 @@
     },
     "cvp_html": {
       "type": "string"
+    },
+    "cvp_config": {
+      "type": "enumeration",
+      "enum": [
+        "html",
+        "list_items"
+      ]
     }
   }
 }
