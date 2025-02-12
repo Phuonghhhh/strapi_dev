@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_onbroading_casa_v_ne_id_cvp_list_htmls",
+  "info": {
+    "displayName": "cvp_list_html"
+  },
+  "options": {},
+  "attributes": {
+    "cvp_feature_key": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_html_url": {
+      "type": "string"
+    }
+  }
+}

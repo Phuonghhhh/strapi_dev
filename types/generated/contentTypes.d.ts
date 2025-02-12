@@ -369,14 +369,14 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCgfCgforganicCvpCgfCgforganicCvp
+export interface ApiOnboardingCvpOnboardingCvp
   extends Struct.CollectionTypeSchema {
-  collectionName: 'cgf_cgforganic_cvps';
+  collectionName: 'onboarding_cvps';
   info: {
     description: '';
-    displayName: 'cgf_cgforganic_cvp';
-    pluralName: 'cgf-cgforganic-cvps';
-    singularName: 'cgf-cgforganic-cvp';
+    displayName: 'onboarding_cvp';
+    pluralName: 'onboarding-cvps';
+    singularName: 'onboarding-cvp';
   };
   options: {
     draftAndPublish: true;
@@ -385,156 +385,47 @@ export interface ApiCgfCgforganicCvpCgfCgforganicCvp
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cvp_list_item: Schema.Attribute.Component<'cgf.cvp-list-item', true>;
-    cvp_name_button: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_name_question: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_service_or_feature_key: Schema.Attribute.Integer;
-    cvp_subtitle: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_title: Schema.Attribute.String & Schema.Attribute.Required;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cgf-cgforganic-cvp.cgf-cgforganic-cvp'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingCasaorganicCreditcardSuccessOnboardingCasaorganicCreditcardSuccess
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_creditcard_successes';
-  info: {
-    displayName: 'onboarding_casaorganic_creditcard_success';
-    pluralName: 'onboarding-casaorganic-creditcard-successes';
-    singularName: 'onboarding-casaorganic-creditcard-success';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    image: Schema.Attribute.String & Schema.Attribute.Required;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-casaorganic-creditcard-success.onboarding-casaorganic-creditcard-success'
-    > &
-      Schema.Attribute.Private;
-    name_button: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    sub_title: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingCasaorganicCvpOnboardingCasaorganicCvp
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_cvps';
-  info: {
-    description: '';
-    displayName: 'onboarding_casaorganic_cvp';
-    pluralName: 'onboarding-casaorganic-cvps';
-    singularName: 'onboarding-casaorganic-cvp';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
+    cvp_config: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_description: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_end_date: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_html_form: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_html_url: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_html: Schema.Attribute.String;
+    cvp_list_item: Schema.Attribute.Component<
+      'onbroading-casa-v-ne-id.cvp-list-item',
+      true
+    >;
     cvp_name: Schema.Attribute.String & Schema.Attribute.Required;
+    cvp_name_button: Schema.Attribute.String;
     cvp_seo_description: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_seo_keywords: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_seo_title: Schema.Attribute.String & Schema.Attribute.Required;
-    cvp_service_or_feature_key: Schema.Attribute.Integer &
-      Schema.Attribute.Required;
     cvp_start_date: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_status: Schema.Attribute.String & Schema.Attribute.Required;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    list_item: Schema.Attribute.Component<'on-broading-casa.list-item', true>;
+    cvp_terms_and_conditions: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::onboarding-casaorganic-cvp.onboarding-casaorganic-cvp'
+      'api::onboarding-cvp.onboarding-cvp'
     > &
       Schema.Attribute.Private;
     name_button: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingCasaorganicGuideselfieOnboardingCasaorganicGuideselfie
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_guideselfies';
-  info: {
-    description: '';
-    displayName: 'onboarding_casaorganic_guideselfie';
-    pluralName: 'onboarding-casaorganic-guideselfies';
-    singularName: 'onboarding-casaorganic-guideselfie';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    list_item: Schema.Attribute.Component<
-      'on-broading-casa.guideselfie-list-item',
-      true
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
+    onboarding_types: Schema.Attribute.Relation<
       'oneToMany',
-      'api::onboarding-casaorganic-guideselfie.onboarding-casaorganic-guideselfie'
-    > &
-      Schema.Attribute.Private;
-    name_button: Schema.Attribute.String & Schema.Attribute.Required;
-    notice: Schema.Attribute.String & Schema.Attribute.Required;
+      'api::onboarding-name.onboarding-name'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    sub_title: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiOnboardingCasaorganicListcountryFlagOnboardingCasaorganicListcountryFlag
+export interface ApiOnboardingNameOnboardingName
   extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_listcountry_flags';
+  collectionName: 'onboarding_names';
   info: {
-    displayName: 'onboarding_casaorganic_listcountryFlag';
-    pluralName: 'onboarding-casaorganic-listcountry-flags';
-    singularName: 'onboarding-casaorganic-listcountry-flag';
+    displayName: 'onboarding_name';
+    pluralName: 'onboarding-names';
+    singularName: 'onboarding-name';
   };
   options: {
     draftAndPublish: true;
@@ -544,73 +435,34 @@ export interface ApiOnboardingCasaorganicListcountryFlagOnboardingCasaorganicLis
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.String & Schema.Attribute.Required;
-    id_country: Schema.Attribute.String & Schema.Attribute.Required;
-    image: Schema.Attribute.String & Schema.Attribute.Required;
     is_active: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::onboarding-casaorganic-listcountry-flag.onboarding-casaorganic-listcountry-flag'
+      'api::onboarding-name.onboarding-name'
     > &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingCasaorganicListcreditcardOnboardingCasaorganicListcreditcard
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_listcreditcards';
-  info: {
-    description: '';
-    displayName: 'onboarding_casaorganic_listcreditcard';
-    pluralName: 'onboarding-casaorganic-listcreditcards';
-    singularName: 'onboarding-casaorganic-listcreditcard';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    List_card: Schema.Attribute.Component<
-      'on-broading-casa.organic-listcreditcard',
-      true
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    onboarding_cvp: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::onboarding-cvp.onboarding-cvp'
     >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-casaorganic-listcreditcard.onboarding-casaorganic-listcreditcard'
-    > &
-      Schema.Attribute.Private;
-    name_button_open_card: Schema.Attribute.String & Schema.Attribute.Required;
-    name_button_skip: Schema.Attribute.String & Schema.Attribute.Required;
-    Notice_name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    sub_title: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiOnboardingCasaorganicSuccessOnboardingCasaorganicSuccess
+export interface ApiOnboardingServiceKeyOnboardingServiceKey
   extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_successes';
+  collectionName: 'onboarding_service_keys';
   info: {
-    description: '';
-    displayName: 'onboarding_casaorganic_success';
-    pluralName: 'onboarding-casaorganic-successes';
-    singularName: 'onboarding-casaorganic-success';
+    displayName: 'onboarding_service_key';
+    pluralName: 'onboarding-service-keys';
+    singularName: 'onboarding-service-key';
   };
   options: {
     draftAndPublish: true;
@@ -619,59 +471,81 @@ export interface ApiOnboardingCasaorganicSuccessOnboardingCasaorganicSuccess
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image_background: Schema.Attribute.String & Schema.Attribute.Required;
     is_active: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
-    list_item: Schema.Attribute.Component<
-      'on-broading-casa.organic-success-list-item',
-      true
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-service-key.onboarding-service-key'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    serviceid: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnbroadingListcountryFlagOnbroadingListcountryFlag
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onbroading_listcountry_flags';
+  info: {
+    description: '';
+    displayName: 'onbroading_listcountryFlag';
+    pluralName: 'onbroading-listcountry-flags';
+    singularName: 'onbroading-listcountry-flag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    id_country: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    is_active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onbroading-listcountry-flag.onbroading-listcountry-flag'
     >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-casaorganic-success.onboarding-casaorganic-success'
-    > &
-      Schema.Attribute.Private;
-    name_button: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    sub_title: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingCasaorganicTermsConditionOnboardingCasaorganicTermsCondition
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_casaorganic_terms_conditions';
-  info: {
-    description: '';
-    displayName: 'onboarding_casaorganic_terms_condition';
-    pluralName: 'onboarding-casaorganic-terms-conditions';
-    singularName: 'onboarding-casaorganic-terms-condition';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-casaorganic-terms-condition.onboarding-casaorganic-terms-condition'
-    > &
-      Schema.Attribute.Private;
-    name_button: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1187,14 +1061,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::cgf-cgforganic-cvp.cgf-cgforganic-cvp': ApiCgfCgforganicCvpCgfCgforganicCvp;
-      'api::onboarding-casaorganic-creditcard-success.onboarding-casaorganic-creditcard-success': ApiOnboardingCasaorganicCreditcardSuccessOnboardingCasaorganicCreditcardSuccess;
-      'api::onboarding-casaorganic-cvp.onboarding-casaorganic-cvp': ApiOnboardingCasaorganicCvpOnboardingCasaorganicCvp;
-      'api::onboarding-casaorganic-guideselfie.onboarding-casaorganic-guideselfie': ApiOnboardingCasaorganicGuideselfieOnboardingCasaorganicGuideselfie;
-      'api::onboarding-casaorganic-listcountry-flag.onboarding-casaorganic-listcountry-flag': ApiOnboardingCasaorganicListcountryFlagOnboardingCasaorganicListcountryFlag;
-      'api::onboarding-casaorganic-listcreditcard.onboarding-casaorganic-listcreditcard': ApiOnboardingCasaorganicListcreditcardOnboardingCasaorganicListcreditcard;
-      'api::onboarding-casaorganic-success.onboarding-casaorganic-success': ApiOnboardingCasaorganicSuccessOnboardingCasaorganicSuccess;
-      'api::onboarding-casaorganic-terms-condition.onboarding-casaorganic-terms-condition': ApiOnboardingCasaorganicTermsConditionOnboardingCasaorganicTermsCondition;
+      'api::onboarding-cvp.onboarding-cvp': ApiOnboardingCvpOnboardingCvp;
+      'api::onboarding-name.onboarding-name': ApiOnboardingNameOnboardingName;
+      'api::onboarding-service-key.onboarding-service-key': ApiOnboardingServiceKeyOnboardingServiceKey;
+      'api::onbroading-listcountry-flag.onbroading-listcountry-flag': ApiOnbroadingListcountryFlagOnbroadingListcountryFlag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

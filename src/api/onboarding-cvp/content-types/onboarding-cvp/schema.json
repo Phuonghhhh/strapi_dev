@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_cvps",
+  "info": {
+    "singularName": "onboarding-cvp",
+    "pluralName": "onboarding-cvps",
+    "displayName": "onboarding_cvp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cvp_name": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_description": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_title": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_description": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_seo_keywords": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_status": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_start_date": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_end_date": {
+      "type": "string",
+      "required": true
+    },
+    "name_button": {
+      "type": "string"
+    },
+    "cvp_config": {
+      "type": "string",
+      "required": true
+    },
+    "cvp_list_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onbroading-casa-v-ne-id.cvp-list-item"
+    },
+    "cvp_name_button": {
+      "type": "string"
+    },
+    "onboarding_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::onboarding-name.onboarding-name",
+      "mappedBy": "onboarding_cvp"
+    },
+    "cvp_terms_and_conditions": {
+      "type": "string"
+    },
+    "cvp_html": {
+      "type": "string"
+    }
+  }
+}
