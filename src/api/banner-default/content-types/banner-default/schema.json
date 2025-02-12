@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banner_defaults",
+  "info": {
+    "singularName": "banner-default",
+    "pluralName": "banner-defaults",
+    "displayName": "banner_default",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "homeservices_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "homeservices_key": {
+      "type": "string",
+      "required": true
+    },
+    "homeservices_banner": {
+      "type": "string",
+      "required": true
+    },
+    "homeservices_banner_title": {
+      "type": "string"
+    },
+    "homeservices_banner_subtitle": {
+      "type": "string"
+    },
+    "homeservices_banner_cta_button_label": {
+      "type": "string"
+    },
+    "homeservices_banner_cta_button_link": {
+      "type": "string"
+    },
+    "homeservices_seo_title": {
+      "type": "string"
+    },
+    "homeservices_seo_description": {
+      "type": "string"
+    },
+    "homeservices_seo_keywords": {
+      "type": "string"
+    },
+    "homeservices_status": {
+      "type": "boolean"
+    },
+    "homeservices_start_date": {
+      "type": "date"
+    },
+    "homeservices_end_date": {
+      "type": "date"
+    },
+    "banner_keys": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner-key.banner-key",
+      "mappedBy": "banner_key"
+    }
+  }
+}

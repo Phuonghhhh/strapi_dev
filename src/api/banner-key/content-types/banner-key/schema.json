@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banner_keys",
+  "info": {
+    "singularName": "banner-key",
+    "pluralName": "banner-keys",
+    "displayName": "banner_key"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner_id": {
+      "type": "string",
+      "unique": false
+    },
+    "banner_key": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::banner-default.banner-default",
+      "inversedBy": "banner_keys"
+    }
+  }
+}

@@ -369,6 +369,86 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBannerDefaultBannerDefault
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'banner_defaults';
+  info: {
+    description: '';
+    displayName: 'banner_default';
+    pluralName: 'banner-defaults';
+    singularName: 'banner-default';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner_keys: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-key.banner-key'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    homeservices_banner: Schema.Attribute.String & Schema.Attribute.Required;
+    homeservices_banner_cta_button_label: Schema.Attribute.String;
+    homeservices_banner_cta_button_link: Schema.Attribute.String;
+    homeservices_banner_subtitle: Schema.Attribute.String;
+    homeservices_banner_title: Schema.Attribute.String;
+    homeservices_end_date: Schema.Attribute.Date;
+    homeservices_key: Schema.Attribute.String & Schema.Attribute.Required;
+    homeservices_name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    homeservices_seo_description: Schema.Attribute.String;
+    homeservices_seo_keywords: Schema.Attribute.String;
+    homeservices_seo_title: Schema.Attribute.String;
+    homeservices_start_date: Schema.Attribute.Date;
+    homeservices_status: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-default.banner-default'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBannerKeyBannerKey extends Struct.CollectionTypeSchema {
+  collectionName: 'banner_keys';
+  info: {
+    displayName: 'banner_key';
+    pluralName: 'banner-keys';
+    singularName: 'banner-key';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner_id: Schema.Attribute.String;
+    banner_key: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::banner-default.banner-default'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-key.banner-key'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOnboardingCvpOnboardingCvp
   extends Struct.CollectionTypeSchema {
   collectionName: 'onboarding_cvps';
@@ -450,39 +530,6 @@ export interface ApiOnboardingNameOnboardingName
       'api::onboarding-cvp.onboarding-cvp'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOnboardingServiceKeyOnboardingServiceKey
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'onboarding_service_keys';
-  info: {
-    displayName: 'onboarding_service_key';
-    pluralName: 'onboarding-service-keys';
-    singularName: 'onboarding-service-key';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-service-key.onboarding-service-key'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    serviceid: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1061,9 +1108,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::banner-default.banner-default': ApiBannerDefaultBannerDefault;
+      'api::banner-key.banner-key': ApiBannerKeyBannerKey;
       'api::onboarding-cvp.onboarding-cvp': ApiOnboardingCvpOnboardingCvp;
       'api::onboarding-name.onboarding-name': ApiOnboardingNameOnboardingName;
-      'api::onboarding-service-key.onboarding-service-key': ApiOnboardingServiceKeyOnboardingServiceKey;
       'api::onbroading-listcountry-flag.onbroading-listcountry-flag': ApiOnbroadingListcountryFlagOnbroadingListcountryFlag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

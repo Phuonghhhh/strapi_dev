@@ -1,15 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface OnbroadingCasaVNeId1323234 extends Struct.ComponentSchema {
-  collectionName: 'components_onbroading_casa_v_ne_id_1323234s';
-  info: {
-    displayName: '1323234';
-  };
-  attributes: {
-    ewrwer: Schema.Attribute.String;
-  };
-}
-
 export interface OnbroadingCasaVNeIdCvpListHtml extends Struct.ComponentSchema {
   collectionName: 'components_onbroading_casa_v_ne_id_cvp_list_htmls';
   info: {
@@ -36,7 +26,6 @@ export interface OnbroadingCasaVNeIdCvpListItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'onbroading-casa-v-ne-id.1323234': OnbroadingCasaVNeId1323234;
       'onbroading-casa-v-ne-id.cvp-list-html': OnbroadingCasaVNeIdCvpListHtml;
       'onbroading-casa-v-ne-id.cvp-list-item': OnbroadingCasaVNeIdCvpListItem;
     }
