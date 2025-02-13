@@ -449,6 +449,72 @@ export interface ApiBannerKeyBannerKey extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiColorManagementColorManagement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'color_managements';
+  info: {
+    displayName: 'color_management';
+    pluralName: 'color-managements';
+    singularName: 'color-management';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    color_hexcode: Schema.Attribute.String;
+    color_name: Schema.Attribute.String & Schema.Attribute.Unique;
+    color_rgbcode: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::color-management.color-management'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKeywordKeyword extends Struct.CollectionTypeSchema {
+  collectionName: 'keywords';
+  info: {
+    description: '';
+    displayName: 'Keywords';
+    pluralName: 'keywords';
+    singularName: 'keyword';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    id_keyword: Schema.Attribute.UID & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::keyword.keyword'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video_seo_keywords: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::video.video'
+    >;
+  };
+}
+
 export interface ApiOnboardingCvpOnboardingCvp
   extends Struct.CollectionTypeSchema {
   collectionName: 'onboarding_cvps';
@@ -469,6 +535,10 @@ export interface ApiOnboardingCvpOnboardingCvp
     cvp_description: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_end_date: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_html: Schema.Attribute.String;
+    cvp_key: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::onboarding-name.onboarding-name'
+    >;
     cvp_list_item: Schema.Attribute.Component<
       'onbroading-casa-v-ne-id.cvp-list-item',
       true
@@ -488,10 +558,6 @@ export interface ApiOnboardingCvpOnboardingCvp
     > &
       Schema.Attribute.Private;
     name_button: Schema.Attribute.String;
-    onboarding_types: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::onboarding-name.onboarding-name'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -503,6 +569,7 @@ export interface ApiOnboardingNameOnboardingName
   extends Struct.CollectionTypeSchema {
   collectionName: 'onboarding_names';
   info: {
+    description: '';
     displayName: 'onboarding_name';
     pluralName: 'onboarding-names';
     singularName: 'onboarding-name';
@@ -514,21 +581,14 @@ export interface ApiOnboardingNameOnboardingName
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String & Schema.Attribute.Required;
-    is_active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::onboarding-name.onboarding-name'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    onboarding_cvp: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::onboarding-cvp.onboarding-cvp'
-    >;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -596,6 +656,77 @@ export interface ApiOnbroadingListcountryFlagOnbroadingListcountryFlag
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiThemeTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'themes';
+  info: {
+    displayName: 'Themes';
+    pluralName: 'themes';
+    singularName: 'theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::theme.theme'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    theme_configurations: Schema.Attribute.Component<
+      'themes-components.theme-configurations',
+      false
+    >;
+    theme_key: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    theme_name: Schema.Attribute.String;
+    theme_status: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'videos';
+  info: {
+    description: '';
+    displayName: 'Video';
+    pluralName: 'videos';
+    singularName: 'video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::video.video'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video_description: Schema.Attribute.Text;
+    video_end_date: Schema.Attribute.Date;
+    video_html_url: Schema.Attribute.String;
+    video_name: Schema.Attribute.String & Schema.Attribute.Required;
+    video_seo_description: Schema.Attribute.Text;
+    video_seo_keywords: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::keyword.keyword'
+    >;
+    video_seo_title: Schema.Attribute.String;
+    video_service_or_feature_key: Schema.Attribute.String;
+    video_start_date: Schema.Attribute.Date;
+    video_status: Schema.Attribute.Boolean;
   };
 }
 
@@ -1110,9 +1241,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::banner-default.banner-default': ApiBannerDefaultBannerDefault;
       'api::banner-key.banner-key': ApiBannerKeyBannerKey;
+      'api::color-management.color-management': ApiColorManagementColorManagement;
+      'api::keyword.keyword': ApiKeywordKeyword;
       'api::onboarding-cvp.onboarding-cvp': ApiOnboardingCvpOnboardingCvp;
       'api::onboarding-name.onboarding-name': ApiOnboardingNameOnboardingName;
       'api::onbroading-listcountry-flag.onbroading-listcountry-flag': ApiOnbroadingListcountryFlagOnbroadingListcountryFlag;
+      'api::theme.theme': ApiThemeTheme;
+      'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

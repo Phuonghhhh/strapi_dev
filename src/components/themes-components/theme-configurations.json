@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_themes_components_theme_configurations",
+  "info": {
+    "displayName": "theme_configurations",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "theme_configurations_json": {
+      "type": "json"
+    },
+    "theme_configurations_tsx": {
+      "type": "string"
+    }
+  }
+}

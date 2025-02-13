@@ -55,12 +55,6 @@
     "cvp_name_button": {
       "type": "string"
     },
-    "onboarding_types": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::onboarding-name.onboarding-name",
-      "mappedBy": "onboarding_cvp"
-    },
     "cvp_terms_and_conditions": {
       "type": "string"
     },
@@ -73,6 +67,11 @@
         "html",
         "list_items"
       ]
+    },
+    "cvp_key": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::onboarding-name.onboarding-name"
     }
   }
 }

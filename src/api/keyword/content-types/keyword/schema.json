@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "keywords",
+  "info": {
+    "singularName": "keyword",
+    "pluralName": "keywords",
+    "displayName": "Keywords",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "id_keyword": {
+      "type": "uid",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "video_seo_keywords": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::video.video",
+      "inversedBy": "video_seo_keywords"
+    }
+  }
+}
