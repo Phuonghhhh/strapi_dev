@@ -596,6 +596,37 @@ export interface ApiOnboardingNameOnboardingName
   };
 }
 
+export interface ApiOnboardingOnboarding extends Struct.CollectionTypeSchema {
+  collectionName: 'onboardings';
+  info: {
+    displayName: 'Onboarding';
+    pluralName: 'onboardings';
+    singularName: 'onboarding';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding.onboarding'
+    > &
+      Schema.Attribute.Private;
+    onboarding_name: Schema.Attribute.Component<
+      'onboarding.onboarding-name',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOnbroadingListcountryFlagOnbroadingListcountryFlag
   extends Struct.CollectionTypeSchema {
   collectionName: 'onbroading_listcountry_flags';
@@ -1245,6 +1276,7 @@ declare module '@strapi/strapi' {
       'api::keyword.keyword': ApiKeywordKeyword;
       'api::onboarding-cvp.onboarding-cvp': ApiOnboardingCvpOnboardingCvp;
       'api::onboarding-name.onboarding-name': ApiOnboardingNameOnboardingName;
+      'api::onboarding.onboarding': ApiOnboardingOnboarding;
       'api::onbroading-listcountry-flag.onbroading-listcountry-flag': ApiOnbroadingListcountryFlagOnbroadingListcountryFlag;
       'api::theme.theme': ApiThemeTheme;
       'api::video.video': ApiVideoVideo;

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_onboarding_onboarding_names",
+  "info": {
+    "displayName": "onboarding_name"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

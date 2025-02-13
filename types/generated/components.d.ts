@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface OnboardingOnboardingName extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_onboarding_names';
+  info: {
+    displayName: 'onboarding_name';
+  };
+  attributes: {
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface OnbroadingCasaVNeIdCvpListHtml extends Struct.ComponentSchema {
   collectionName: 'components_onbroading_casa_v_ne_id_cvp_list_htmls';
   info: {
@@ -39,6 +50,7 @@ export interface ThemesComponentsThemeConfigurations
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'onboarding.onboarding-name': OnboardingOnboardingName;
       'onbroading-casa-v-ne-id.cvp-list-html': OnbroadingCasaVNeIdCvpListHtml;
       'onbroading-casa-v-ne-id.cvp-list-item': OnbroadingCasaVNeIdCvpListItem;
       'themes-components.theme-configurations': ThemesComponentsThemeConfigurations;
