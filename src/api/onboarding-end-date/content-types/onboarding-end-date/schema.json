@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_end_dates",
+  "info": {
+    "singularName": "onboarding-end-date",
+    "pluralName": "onboarding-end-dates",
+    "displayName": "onboarding_end_date"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

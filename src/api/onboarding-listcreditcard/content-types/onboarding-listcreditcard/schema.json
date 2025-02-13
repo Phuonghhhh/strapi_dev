@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_listcreditcards",
+  "info": {
+    "singularName": "onboarding-listcreditcard",
+    "pluralName": "onboarding-listcreditcards",
+    "displayName": "onboarding_listcreditcard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sub_title": {
+      "type": "string"
+    },
+    "list_card": {
+      "displayName": "Card_Properties",
+      "type": "component",
+      "repeatable": false,
+      "component": "onbroading-casa-v-ne-id.card-properties"
+    },
+    "name_button_open_card": {
+      "type": "string",
+      "default": "Mở thẻ",
+      "required": true
+    },
+    "name_button_skip": {
+      "type": "string",
+      "default": "Bỏ Qua",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "Notice_name": {
+      "type": "string"
+    }
+  }
+}

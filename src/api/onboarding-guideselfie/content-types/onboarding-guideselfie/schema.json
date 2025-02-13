@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_guideselfies",
+  "info": {
+    "singularName": "onboarding-guideselfie",
+    "pluralName": "onboarding-guideselfies",
+    "displayName": "onboarding_guideselfie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sub_title": {
+      "type": "string"
+    },
+    "list_item": {
+      "displayName": "list_media_item",
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.list-media-item"
+    },
+    "notice": {
+      "type": "string",
+      "required": true
+    },
+    "name_button": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

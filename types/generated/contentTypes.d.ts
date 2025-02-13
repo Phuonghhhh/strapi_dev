@@ -449,44 +449,12 @@ export interface ApiBannerKeyBannerKey extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiColorManagementColorManagement
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'color_managements';
+export interface ApiLongFormCvpLongFormCvp extends Struct.CollectionTypeSchema {
+  collectionName: 'long_form_cvps';
   info: {
-    displayName: 'color_management';
-    pluralName: 'color-managements';
-    singularName: 'color-management';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    color_hexcode: Schema.Attribute.String;
-    color_name: Schema.Attribute.String & Schema.Attribute.Unique;
-    color_rgbcode: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::color-management.color-management'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiKeywordKeyword extends Struct.CollectionTypeSchema {
-  collectionName: 'keywords';
-  info: {
-    description: '';
-    displayName: 'Keywords';
-    pluralName: 'keywords';
-    singularName: 'keyword';
+    displayName: 'Long Form CVP';
+    pluralName: 'long-form-cvps';
+    singularName: 'long-form-cvp';
   };
   options: {
     draftAndPublish: true;
@@ -495,23 +463,31 @@ export interface ApiKeywordKeyword extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    id_keyword: Schema.Attribute.UID & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::keyword.keyword'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    video_seo_keywords: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::video.video'
+    cvp_config: Schema.Attribute.Enumeration<['html_url', 'list_item']>;
+    cvp_description: Schema.Attribute.String;
+    cvp_end_date: Schema.Attribute.Date;
+    cvp_html_form: Schema.Attribute.String;
+    cvp_html_url: Schema.Attribute.String;
+    cvp_list_item: Schema.Attribute.Component<
+      'onbroading-casa-v-ne-id.cvp-list-item',
+      true
     >;
+    cvp_name: Schema.Attribute.String;
+    cvp_name_button: Schema.Attribute.String;
+    cvp_seo: Schema.Attribute.Component<'seo.seo-managements', false>;
+    cvp_service_or_feature_key: Schema.Attribute.String;
+    cvp_start_date: Schema.Attribute.Date;
+    cvp_status: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::long-form-cvp.long-form-cvp'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -535,8 +511,8 @@ export interface ApiOnboardingCvpOnboardingCvp
     cvp_description: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_end_date: Schema.Attribute.String & Schema.Attribute.Required;
     cvp_html: Schema.Attribute.String;
-    cvp_key: Schema.Attribute.Relation<
-      'oneToOne',
+    cvp_keys: Schema.Attribute.Relation<
+      'oneToMany',
       'api::onboarding-name.onboarding-name'
     >;
     cvp_list_item: Schema.Attribute.Component<
@@ -559,6 +535,112 @@ export interface ApiOnboardingCvpOnboardingCvp
       Schema.Attribute.Private;
     name_button: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingEndDateOnboardingEndDate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_end_dates';
+  info: {
+    displayName: 'onboarding_end_date';
+    pluralName: 'onboarding-end-dates';
+    singularName: 'onboarding-end-date';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-end-date.onboarding-end-date'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingGuideselfieOnboardingGuideselfie
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_guideselfies';
+  info: {
+    displayName: 'onboarding_guideselfie';
+    pluralName: 'onboarding-guideselfies';
+    singularName: 'onboarding-guideselfie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    list_item: Schema.Attribute.Component<'onboarding.list-media-item', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-guideselfie.onboarding-guideselfie'
+    > &
+      Schema.Attribute.Private;
+    name_button: Schema.Attribute.String & Schema.Attribute.Required;
+    notice: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sub_title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingListcreditcardOnboardingListcreditcard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_listcreditcards';
+  info: {
+    displayName: 'onboarding_listcreditcard';
+    pluralName: 'onboarding-listcreditcards';
+    singularName: 'onboarding-listcreditcard';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    list_card: Schema.Attribute.Component<
+      'onbroading-casa-v-ne-id.card-properties',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-listcreditcard.onboarding-listcreditcard'
+    > &
+      Schema.Attribute.Private;
+    name_button_open_card: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'M\u1EDF th\u1EBB'>;
+    name_button_skip: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'B\u1ECF Qua'>;
+    Notice_name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    sub_title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -596,12 +678,13 @@ export interface ApiOnboardingNameOnboardingName
   };
 }
 
-export interface ApiOnboardingOnboarding extends Struct.CollectionTypeSchema {
-  collectionName: 'onboardings';
+export interface ApiOnboardingRegistersuccessOnboardingRegistersuccess
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_registersuccesses';
   info: {
-    displayName: 'Onboarding';
-    pluralName: 'onboardings';
-    singularName: 'onboarding';
+    displayName: 'onboarding_registersuccess';
+    pluralName: 'onboarding-registersuccesses';
+    singularName: 'onboarding-registersuccess';
   };
   options: {
     draftAndPublish: true;
@@ -610,17 +693,203 @@ export interface ApiOnboardingOnboarding extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image_background: Schema.Attribute.String;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    list_item: Schema.Attribute.Component<
+      'onbroading-casa-v-ne-id.list-item-descriptions',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::onboarding.onboarding'
+      'api::onboarding-registersuccess.onboarding-registersuccess'
     > &
       Schema.Attribute.Private;
-    onboarding_name: Schema.Attribute.Component<
-      'onboarding.onboarding-name',
-      false
-    >;
+    name_button: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    sub_title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingSeoDescriptionOnboardingSeoDescription
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_seo_descriptions';
+  info: {
+    displayName: 'onboarding_seo_description';
+    pluralName: 'onboarding-seo-descriptions';
+    singularName: 'onboarding-seo-description';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-seo-description.onboarding-seo-description'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingSeoKeywordOnboardingSeoKeyword
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_seo_keywords';
+  info: {
+    displayName: 'onboarding_seo_keywords';
+    pluralName: 'onboarding-seo-keywords';
+    singularName: 'onboarding-seo-keyword';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-seo-keyword.onboarding-seo-keyword'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingSeoTitleOnboardingSeoTitle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_seo_titles';
+  info: {
+    displayName: 'onboarding_seo_title';
+    pluralName: 'onboarding-seo-titles';
+    singularName: 'onboarding-seo-title';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-seo-title.onboarding-seo-title'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingSourceOnboardingOnboardingSourceOnboarding
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_source_onboardings';
+  info: {
+    displayName: 'onboarding_source_onboarding';
+    pluralName: 'onboarding-source-onboardings';
+    singularName: 'onboarding-source-onboarding';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-source-onboarding.onboarding-source-onboarding'
+    > &
+      Schema.Attribute.Private;
+    name_source_onboarding: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingStartDateOnboardingStartDate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_start_dates';
+  info: {
+    displayName: 'onboarding_start_date';
+    pluralName: 'onboarding-start-dates';
+    singularName: 'onboarding-start-date';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-start-date.onboarding-start-date'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOnboardingTermsAndConditionOnboardingTermsAndCondition
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_terms_and_conditions';
+  info: {
+    displayName: 'onboarding_terms_and_conditions';
+    pluralName: 'onboarding-terms-and-conditions';
+    singularName: 'onboarding-terms-and-condition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-terms-and-condition.onboarding-terms-and-condition'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -693,6 +962,7 @@ export interface ApiOnbroadingListcountryFlagOnbroadingListcountryFlag
 export interface ApiThemeTheme extends Struct.CollectionTypeSchema {
   collectionName: 'themes';
   info: {
+    description: '';
     displayName: 'Themes';
     pluralName: 'themes';
     singularName: 'theme';
@@ -708,6 +978,7 @@ export interface ApiThemeTheme extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::theme.theme'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    theme_background_image: Schema.Attribute.String;
     theme_configurations: Schema.Attribute.Component<
       'themes-components.theme-configurations',
       false
@@ -715,8 +986,19 @@ export interface ApiThemeTheme extends Struct.CollectionTypeSchema {
     theme_key: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    theme_logo: Schema.Attribute.String;
     theme_name: Schema.Attribute.String;
+    theme_primary_color: Schema.Attribute.Component<
+      'themes-components.color-management',
+      false
+    >;
+    theme_secondary_color: Schema.Attribute.Component<
+      'themes-components.color-management',
+      true
+    >;
     theme_status: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    theme_target_users: Schema.Attribute.JSON;
+    theme_typography: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -749,12 +1031,7 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     video_end_date: Schema.Attribute.Date;
     video_html_url: Schema.Attribute.String;
     video_name: Schema.Attribute.String & Schema.Attribute.Required;
-    video_seo_description: Schema.Attribute.Text;
-    video_seo_keywords: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::keyword.keyword'
-    >;
-    video_seo_title: Schema.Attribute.String;
+    video_seo: Schema.Attribute.Component<'seo.seo-managements', false>;
     video_service_or_feature_key: Schema.Attribute.String;
     video_start_date: Schema.Attribute.Date;
     video_status: Schema.Attribute.Boolean;
@@ -1272,11 +1549,19 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::banner-default.banner-default': ApiBannerDefaultBannerDefault;
       'api::banner-key.banner-key': ApiBannerKeyBannerKey;
-      'api::color-management.color-management': ApiColorManagementColorManagement;
-      'api::keyword.keyword': ApiKeywordKeyword;
+      'api::long-form-cvp.long-form-cvp': ApiLongFormCvpLongFormCvp;
       'api::onboarding-cvp.onboarding-cvp': ApiOnboardingCvpOnboardingCvp;
+      'api::onboarding-end-date.onboarding-end-date': ApiOnboardingEndDateOnboardingEndDate;
+      'api::onboarding-guideselfie.onboarding-guideselfie': ApiOnboardingGuideselfieOnboardingGuideselfie;
+      'api::onboarding-listcreditcard.onboarding-listcreditcard': ApiOnboardingListcreditcardOnboardingListcreditcard;
       'api::onboarding-name.onboarding-name': ApiOnboardingNameOnboardingName;
-      'api::onboarding.onboarding': ApiOnboardingOnboarding;
+      'api::onboarding-registersuccess.onboarding-registersuccess': ApiOnboardingRegistersuccessOnboardingRegistersuccess;
+      'api::onboarding-seo-description.onboarding-seo-description': ApiOnboardingSeoDescriptionOnboardingSeoDescription;
+      'api::onboarding-seo-keyword.onboarding-seo-keyword': ApiOnboardingSeoKeywordOnboardingSeoKeyword;
+      'api::onboarding-seo-title.onboarding-seo-title': ApiOnboardingSeoTitleOnboardingSeoTitle;
+      'api::onboarding-source-onboarding.onboarding-source-onboarding': ApiOnboardingSourceOnboardingOnboardingSourceOnboarding;
+      'api::onboarding-start-date.onboarding-start-date': ApiOnboardingStartDateOnboardingStartDate;
+      'api::onboarding-terms-and-condition.onboarding-terms-and-condition': ApiOnboardingTermsAndConditionOnboardingTermsAndCondition;
       'api::onbroading-listcountry-flag.onbroading-listcountry-flag': ApiOnbroadingListcountryFlagOnbroadingListcountryFlag;
       'api::theme.theme': ApiThemeTheme;
       'api::video.video': ApiVideoVideo;

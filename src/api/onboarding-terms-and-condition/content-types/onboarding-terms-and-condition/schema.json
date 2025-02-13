@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_terms_and_conditions",
+  "info": {
+    "singularName": "onboarding-terms-and-condition",
+    "pluralName": "onboarding-terms-and-conditions",
+    "displayName": "onboarding_terms_and_conditions"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

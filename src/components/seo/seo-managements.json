@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_seo_seo_managements",
+  "info": {
+    "displayName": "seo_managements"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "string"
+    }
+  }
+}

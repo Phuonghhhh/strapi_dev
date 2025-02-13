@@ -68,9 +68,9 @@
         "list_items"
       ]
     },
-    "cvp_key": {
+    "cvp_keys": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::onboarding-name.onboarding-name"
     }
   }

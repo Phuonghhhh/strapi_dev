@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "long_form_cvps",
+  "info": {
+    "singularName": "long-form-cvp",
+    "pluralName": "long-form-cvps",
+    "displayName": "Long Form CVP"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cvp_name": {
+      "type": "string"
+    },
+    "cvp_service_or_feature_key": {
+      "type": "string"
+    },
+    "cvp_description": {
+      "type": "string"
+    },
+    "cvp_html_url": {
+      "type": "string"
+    },
+    "cvp_html_form": {
+      "type": "string"
+    },
+    "cvp_seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo-managements"
+    },
+    "cvp_status": {
+      "type": "boolean"
+    },
+    "cvp_start_date": {
+      "type": "date"
+    },
+    "cvp_end_date": {
+      "type": "date"
+    },
+    "cvp_name_button": {
+      "type": "string"
+    },
+    "cvp_list_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onbroading-casa-v-ne-id.cvp-list-item"
+    },
+    "cvp_config": {
+      "type": "enumeration",
+      "enum": [
+        "html_url",
+        "list_item"
+      ]
+    }
+  }
+}

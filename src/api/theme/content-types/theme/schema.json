@@ -4,7 +4,8 @@
   "info": {
     "singularName": "theme",
     "pluralName": "themes",
-    "displayName": "Themes"
+    "displayName": "Themes",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,6 +29,28 @@
       "type": "component",
       "repeatable": false,
       "component": "themes-components.theme-configurations"
+    },
+    "theme_primary_color": {
+      "type": "component",
+      "repeatable": false,
+      "component": "themes-components.color-management"
+    },
+    "theme_secondary_color": {
+      "type": "component",
+      "repeatable": true,
+      "component": "themes-components.color-management"
+    },
+    "theme_typography": {
+      "type": "json"
+    },
+    "theme_logo": {
+      "type": "string"
+    },
+    "theme_background_image": {
+      "type": "string"
+    },
+    "theme_target_users": {
+      "type": "json"
     }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_onbroading_casa_v_ne_id_card_properties",
+  "info": {
+    "displayName": "Card_Properties"
+  },
+  "options": {},
+  "attributes": {
+    "image_card": {
+      "type": "string",
+      "required": true
+    },
+    "url_card": {
+      "type": "string"
+    }
+  }
+}

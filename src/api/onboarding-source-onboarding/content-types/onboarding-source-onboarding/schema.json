@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_source_onboardings",
+  "info": {
+    "singularName": "onboarding-source-onboarding",
+    "pluralName": "onboarding-source-onboardings",
+    "displayName": "onboarding_source_onboarding"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name_source_onboarding": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

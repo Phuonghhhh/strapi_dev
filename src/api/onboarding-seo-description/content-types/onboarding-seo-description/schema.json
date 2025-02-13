@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_seo_descriptions",
+  "info": {
+    "singularName": "onboarding-seo-description",
+    "pluralName": "onboarding-seo-descriptions",
+    "displayName": "onboarding_seo_description"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

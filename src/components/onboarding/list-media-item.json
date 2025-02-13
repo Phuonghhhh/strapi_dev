@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_onboarding_list_media_items",
+  "info": {
+    "displayName": "list_media_item"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

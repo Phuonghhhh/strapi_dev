@@ -26,12 +26,6 @@
     "video_html_url": {
       "type": "string"
     },
-    "video_seo_title": {
-      "type": "string"
-    },
-    "video_seo_description": {
-      "type": "text"
-    },
     "video_status": {
       "type": "boolean"
     },
@@ -41,11 +35,11 @@
     "video_end_date": {
       "type": "date"
     },
-    "video_seo_keywords": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::keyword.keyword",
-      "mappedBy": "video_seo_keywords"
+    "video_seo": {
+      "displayName": "seo_managements",
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo-managements"
     }
   }
 }

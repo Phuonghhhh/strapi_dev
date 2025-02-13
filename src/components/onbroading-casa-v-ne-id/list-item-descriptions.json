@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_onbroading_casa_v_ne_id_list_item_descriptions",
+  "info": {
+    "displayName": "list_item_descriptions"
+  },
+  "options": {},
+  "attributes": {
+    "image_item": {
+      "type": "string",
+      "required": true
+    },
+    "title_item": {
+      "type": "string"
+    },
+    "description_item": {
+      "type": "string"
+    }
+  }
+}
