@@ -4,7 +4,8 @@
   "info": {
     "singularName": "onboarding-type",
     "pluralName": "onboarding-types",
-    "displayName": "onboarding_type"
+    "displayName": "onboarding_type",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,9 @@
       "relation": "manyToOne",
       "target": "api::onboarding-cvp.onboarding-cvp",
       "inversedBy": "onboarding_types"
+    },
+    "onboarding_type_description": {
+      "type": "string"
     }
   }
 }

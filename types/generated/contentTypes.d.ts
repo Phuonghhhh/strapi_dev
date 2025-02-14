@@ -863,6 +863,7 @@ export interface ApiOnboardingTypeOnboardingType
   extends Struct.CollectionTypeSchema {
   collectionName: 'onboarding_types';
   info: {
+    description: '';
     displayName: 'onboarding_type';
     pluralName: 'onboarding-types';
     singularName: 'onboarding-type';
@@ -885,6 +886,7 @@ export interface ApiOnboardingTypeOnboardingType
       'manyToOne',
       'api::onboarding-cvp.onboarding-cvp'
     >;
+    onboarding_type_description: Schema.Attribute.String;
     onboarding_type_name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
