@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_onboarding_ob_notices",
+  "info": {
+    "displayName": "ob_notice"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "button_icon": {
+      "type": "string",
+      "required": true
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

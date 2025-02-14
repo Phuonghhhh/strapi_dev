@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_onboarding_ob_guidenfc_items",
+  "info": {
+    "displayName": "ob_guidenfc_items",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

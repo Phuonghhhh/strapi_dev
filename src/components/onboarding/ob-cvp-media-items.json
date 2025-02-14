@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_onboarding_ob_cvp_media_items",
+  "info": {
+    "displayName": "ob_cvp_media_items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "media_url": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "video",
+        "image",
+        "sound"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "is_active": {
+      "type": "boolean"
+    }
+  }
+}

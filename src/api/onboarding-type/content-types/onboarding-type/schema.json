@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_types",
+  "info": {
+    "singularName": "onboarding-type",
+    "pluralName": "onboarding-types",
+    "displayName": "onboarding_type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "onboarding_type_name": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "onboarding_cvp": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::onboarding-cvp.onboarding-cvp",
+      "inversedBy": "onboarding_types"
+    }
+  }
+}

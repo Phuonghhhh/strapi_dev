@@ -4,7 +4,8 @@
   "info": {
     "singularName": "long-form-cvp",
     "pluralName": "long-form-cvps",
-    "displayName": "Long Form CVP"
+    "displayName": "Long Form CVP",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,7 +32,7 @@
       "repeatable": false,
       "component": "seo.seo-managements"
     },
-    "cvp_status": {
+    "is_active": {
       "type": "boolean"
     },
     "cvp_start_date": {
@@ -40,20 +41,29 @@
     "cvp_end_date": {
       "type": "date"
     },
-    "cvp_name_button": {
-      "type": "string"
-    },
-    "cvp_list_item": {
-      "type": "component",
-      "repeatable": true,
-      "component": "onbroading-casa-v-ne-id.cvp-list-item"
-    },
     "cvp_config": {
       "type": "enumeration",
       "enum": [
         "html_url",
         "list_item"
       ]
+    },
+    "onboarding_cvps": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::onboarding-cvp.onboarding-cvp",
+      "mappedBy": "onboarding_cvp_form"
+    },
+    "cvp_list_item": {
+      "displayName": "ob_cvp_media_items",
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.ob-cvp-media-items"
+    },
+    "cvp_cta_button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.ob-button"
     }
   }
 }

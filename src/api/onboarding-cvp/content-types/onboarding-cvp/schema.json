@@ -12,53 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "cvp_name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "cvp_description": {
+    "description": {
       "type": "string",
       "required": true
     },
-    "cvp_seo_title": {
-      "type": "string",
-      "required": true
-    },
-    "cvp_seo_description": {
-      "type": "string",
-      "required": true
-    },
-    "cvp_seo_keywords": {
-      "type": "string",
-      "required": true
-    },
-    "cvp_status": {
-      "type": "string",
-      "required": true
-    },
-    "cvp_start_date": {
-      "type": "string",
-      "required": true
-    },
-    "cvp_end_date": {
-      "type": "string",
-      "required": true
-    },
-    "name_button": {
-      "type": "string"
-    },
-    "cvp_list_item": {
-      "type": "component",
-      "repeatable": true,
-      "component": "onbroading-casa-v-ne-id.cvp-list-item"
-    },
-    "cvp_name_button": {
-      "type": "string"
-    },
-    "cvp_terms_and_conditions": {
-      "type": "string"
-    },
-    "cvp_html": {
+    "tnc_text": {
       "type": "string"
     },
     "cvp_config": {
@@ -68,10 +30,42 @@
         "list_items"
       ]
     },
-    "cvp_keys": {
+    "title": {
+      "type": "string"
+    },
+    "button_heading_group": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.ob-button"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "onboarding_types": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::onboarding-name.onboarding-name"
+      "target": "api::onboarding-type.onboarding-type",
+      "mappedBy": "onboarding_cvp"
+    },
+    "backgroud_media": {
+      "type": "string"
+    },
+    "onboarding_cvp_form": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::long-form-cvp.long-form-cvp",
+      "inversedBy": "onboarding_cvps"
+    },
+    "cta_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "onboarding.ob-button"
+    },
+    "media_cta_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "onboarding.ob-button"
     }
   }
 }

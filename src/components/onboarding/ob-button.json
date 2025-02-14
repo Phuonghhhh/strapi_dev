@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_onboarding_ob_buttons",
+  "info": {
+    "displayName": "ob_button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "text_color": {
+      "type": "string"
+    },
+    "backgroud_color": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "icon_url": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

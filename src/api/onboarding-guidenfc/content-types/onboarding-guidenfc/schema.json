@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "onboarding_guideselfies",
+  "collectionName": "onboarding_guidenfcs",
   "info": {
-    "singularName": "onboarding-guideselfie",
-    "pluralName": "onboarding-guideselfies",
-    "displayName": "onboarding_guideselfie",
+    "singularName": "onboarding-guidenfc",
+    "pluralName": "onboarding-guidenfcs",
+    "displayName": "onboarding_guidenfc",
     "description": ""
   },
   "options": {
@@ -19,22 +19,23 @@
     "sub_title": {
       "type": "string"
     },
-    "notice": {
+    "media_url": {
       "type": "string",
       "required": true
+    },
+    "guide_items": {
+      "displayName": "ob_guidenfc_items",
+      "type": "component",
+      "repeatable": false,
+      "component": "onboarding.ob-guidenfc-items"
     },
     "is_active": {
       "type": "boolean",
       "default": true
     },
-    "list_item": {
-      "type": "component",
-      "repeatable": true,
-      "component": "onboarding.ob-guideselfie-media-items"
-    },
     "cta_button": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "onboarding.ob-button"
     }
   }

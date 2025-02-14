@@ -4,7 +4,8 @@
   "info": {
     "singularName": "onboarding-terms-and-condition",
     "pluralName": "onboarding-terms-and-conditions",
-    "displayName": "onboarding_terms_and_conditions"
+    "displayName": "onboarding_terms_and_conditions",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,10 @@
     "is_active": {
       "type": "boolean",
       "default": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }

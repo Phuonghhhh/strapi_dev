@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_onboarding_ob_registersuccess_items",
+  "info": {
+    "displayName": "ob_registersuccess_items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string",
+      "required": false
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

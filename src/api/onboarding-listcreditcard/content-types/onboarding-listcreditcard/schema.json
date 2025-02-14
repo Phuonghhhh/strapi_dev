@@ -4,7 +4,8 @@
   "info": {
     "singularName": "onboarding-listcreditcard",
     "pluralName": "onboarding-listcreditcards",
-    "displayName": "onboarding_listcreditcard"
+    "displayName": "onboarding_listcreditcard",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,28 +19,26 @@
     "sub_title": {
       "type": "string"
     },
-    "list_card": {
-      "displayName": "Card_Properties",
-      "type": "component",
-      "repeatable": false,
-      "component": "onbroading-casa-v-ne-id.card-properties"
-    },
-    "name_button_open_card": {
-      "type": "string",
-      "default": "Mở thẻ",
-      "required": true
-    },
-    "name_button_skip": {
-      "type": "string",
-      "default": "Bỏ Qua",
-      "required": true
-    },
     "is_active": {
       "type": "boolean",
       "default": true
     },
-    "Notice_name": {
-      "type": "string"
+    "noitice": {
+      "displayName": "ob_notice",
+      "type": "component",
+      "repeatable": false,
+      "component": "onboarding.ob-notice"
+    },
+    "cta_button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.ob-button"
+    },
+    "ob_listcard_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ob-listcard-item.ob-listcard-item",
+      "inversedBy": "onboarding_listcreditcards"
     }
   }
 }

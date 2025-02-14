@@ -11,6 +11,98 @@ export interface OnboardingListMediaItem extends Struct.ComponentSchema {
   };
 }
 
+export interface OnboardingObButton extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_buttons';
+  info: {
+    displayName: 'ob_button';
+  };
+  attributes: {
+    backgroud_color: Schema.Attribute.String;
+    icon_url: Schema.Attribute.String;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    order: Schema.Attribute.Integer;
+    text: Schema.Attribute.String;
+    text_color: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface OnboardingObCvpMediaItems extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_cvp_media_items';
+  info: {
+    displayName: 'ob_cvp_media_items';
+  };
+  attributes: {
+    is_active: Schema.Attribute.Boolean;
+    media_url: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['video', 'image', 'sound']>;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface OnboardingObGuidenfcItems extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_guidenfc_items';
+  info: {
+    displayName: 'ob_guidenfc_items';
+    icon: 'crown';
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    order: Schema.Attribute.Integer;
+  };
+}
+
+export interface OnboardingObGuideselfieMediaItems
+  extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_guideselfie_media_items';
+  info: {
+    displayName: 'ob_guideselfie_media_items';
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+    is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    media_url: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
+  };
+}
+
+export interface OnboardingObNotice extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_notices';
+  info: {
+    displayName: 'ob_notice';
+  };
+  attributes: {
+    background_color: Schema.Attribute.String;
+    button_icon: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    is_active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface OnboardingObRegistersuccessItems
+  extends Struct.ComponentSchema {
+  collectionName: 'components_onboarding_ob_registersuccess_items';
+  info: {
+    displayName: 'ob_registersuccess_items';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image_url: Schema.Attribute.String;
+    is_active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface OnboardingOnboardingName extends Struct.ComponentSchema {
   collectionName: 'components_onboarding_onboarding_names';
   info: {
@@ -114,6 +206,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'onboarding.list-media-item': OnboardingListMediaItem;
+      'onboarding.ob-button': OnboardingObButton;
+      'onboarding.ob-cvp-media-items': OnboardingObCvpMediaItems;
+      'onboarding.ob-guidenfc-items': OnboardingObGuidenfcItems;
+      'onboarding.ob-guideselfie-media-items': OnboardingObGuideselfieMediaItems;
+      'onboarding.ob-notice': OnboardingObNotice;
+      'onboarding.ob-registersuccess-items': OnboardingObRegistersuccessItems;
       'onboarding.onboarding-name': OnboardingOnboardingName;
       'onbroading-casa-v-ne-id.card-properties': OnbroadingCasaVNeIdCardProperties;
       'onbroading-casa-v-ne-id.cvp-list-html': OnbroadingCasaVNeIdCvpListHtml;

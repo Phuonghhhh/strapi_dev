@@ -4,7 +4,8 @@
   "info": {
     "singularName": "onboarding-registersuccess",
     "pluralName": "onboarding-registersuccesses",
-    "displayName": "onboarding_registersuccess"
+    "displayName": "onboarding_registersuccess",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,18 +22,20 @@
     "image_background": {
       "type": "string"
     },
-    "name_button": {
-      "type": "string"
-    },
     "is_active": {
       "type": "boolean",
       "default": true
     },
-    "list_item": {
-      "displayName": "list_item_descriptions",
+    "cta_button": {
       "type": "component",
       "repeatable": true,
-      "component": "onbroading-casa-v-ne-id.list-item-descriptions"
+      "component": "onboarding.ob-button"
+    },
+    "list_item": {
+      "displayName": "ob_registersuccess_items",
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.ob-registersuccess-items"
     }
   }
 }
